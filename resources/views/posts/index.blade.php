@@ -6,7 +6,7 @@
             <div class="alert alert-success">{{ session('message') }}</div>
             
         @endif
-        <h1 class="text-center mb-5">All my posts</h1>
+        <h1 class="text-center mb-5">All Posts</h1>
         
         <div class="row">
             <div class="col-md-6 offset-md-3">
