@@ -28,7 +28,7 @@ class Post extends Model
         if($this->image){
             return url('/storage/'.$this->image);
         }
-        return url('/storage/default.jpg');
+        return url('/image/default.jpg');
     }
 
     //mutators

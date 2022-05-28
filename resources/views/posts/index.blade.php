@@ -18,7 +18,10 @@
                         <th scope="col">Type</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
-                        <span class="float-end"><a href="{{ route('posts.create') }}">New post</a></span>
+                        @if (auth()->user()->type==2)
+                             <span class="float-end"><a href="{{ route('posts.create') }}">New post</a></span> 
+                        @endif
+                       
                       </tr>
                     </thead>
                     <tbody>
