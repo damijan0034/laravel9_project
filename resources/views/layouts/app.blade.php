@@ -63,6 +63,12 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    @if (auth()->user()->type==1)
+                                        <a class="dropdown-item" href="{{ route('admin.index') }}">SoftDeletes</a>
+                                    @endif
+                                   
+                                    
+                                 
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

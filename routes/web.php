@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Dashboard\PostController as DashboardPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,15 @@ Route::middleware(['auth'])->group(function(){
 
 Route::get('/',[DashboardPostController::class,'index'])->name('dashboard.index');
 Route::get('/dashboard/posts/{post:slug}',[DashboardPostController::class,'show'])->name('dashboard.show');
+
+//admin routes
+Route::middleware(['auth','checkAdmin'])->group(function(){
+    Route::get('/admin',[AdminPostController::class,'index'])->name('admin.index');
+    Route::delete('/admin/destroy/{id}',[AdminPostController::class,'destroy'])->name('admin.destroy');
+    Route::put('/admin/restore/{id}',[AdminPostController::class,'restore'])->name('admin.restore');
+});
+
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
