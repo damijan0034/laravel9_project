@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Dashboard\PostController as DashboardPostController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,10 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/posts/{post:slug}',[PostController::class,'show'])->name('posts.show');
     Route::get('/posts/{post:slug}/edit',[PostController::class,'edit'])->name('posts.edit');
+
+    //profile routes
+Route::get('/profile/edit',[ProfileController::class,'edit'])->name('profile.edit');
+Route::put('/profile/{user}/update',[ProfileController::class,'update'])->name('profile.update');
 });
 
 Route::get('/',[DashboardPostController::class,'index'])->name('dashboard.index');
@@ -39,6 +44,8 @@ Route::middleware(['auth','checkAdmin'])->group(function(){
     Route::delete('/admin/destroy/{id}',[AdminPostController::class,'destroy'])->name('admin.destroy');
     Route::put('/admin/restore/{id}',[AdminPostController::class,'restore'])->name('admin.restore');
 });
+
+
 
 
 

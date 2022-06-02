@@ -22,10 +22,15 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    //relations
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
     }
 
     /**

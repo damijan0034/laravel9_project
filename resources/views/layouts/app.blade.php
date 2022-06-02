@@ -63,9 +63,11 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
+                                    <a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a>
                                     @if (auth()->user()->type==1)
                                         <a class="dropdown-item" href="{{ route('admin.index') }}">SoftDeletes</a>
-                                    @endif
+                                            @endif
                                    
                                     
                                  
