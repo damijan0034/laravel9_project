@@ -20,7 +20,7 @@ class PostController extends Controller
 
         $post->forceDelete();
 
-        return redirect(route('admin.index'));
+        return redirect(route('admin.index'))->with('message','Post permanently deleted');
     }
 
     public function restore($id)
@@ -29,6 +29,6 @@ class PostController extends Controller
 
         $post->restore();
 
-        return redirect(route('admin.index'));
+        return redirect(route('admin.index'))->with('message','Post successfully restored');
     }
 }

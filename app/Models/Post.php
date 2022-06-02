@@ -29,10 +29,10 @@ class Post extends Model
         if($this->image){
             return url('/storage/'.$this->image);
         }
-        return url('/image/default.jpg');
+        return url('/images/default.jpg');
     }
 
-    //mutators
+    //mutators,creating slug
     public function setTitleAttribute($value)
     {
         $this->attributes['title']=$value;
